@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, TextInput, TouchableOpacity} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -8,33 +8,66 @@ import { useNavigation } from '@react-navigation/native';
 export function ScreenB() {
     const navigation = useNavigation();
   
-    function openScreenC(){
-        navigation.navigate('Consultas Agendadas')
-    }
+    // function openScreenC(){
+    //     navigation.navigate('Consultas Agendadas')
+    // }
   
     function openScreenA(){
         navigation.navigate('Home')
     }
+    
+    const [name, setName] = useState('');
+    const [nameList, setNameList] = useState([]);
+
+    const [cpf, setCpf] = useState('');
+
+    const [birthdate, setBirthdate] = useState('');
+
+    const [endereco, setEndereco] = useState('');
+
+    const [email, setEmail] = useState('');
+
+    const [telefone, setTelefone] = useState('');
+    const [telefoneList, setTelefoneList] = useState([]);
+
+    useEffect(() => {
+    //     console.log('Nomes atualizados:', nameList);
+    //   }, [nameList]);
+
+        console.log('Nova consulta:', "\nNome: " + name,  "\nTelefone: " + telefone, "\nEmail: " + email);
+      }, [nameList]);
+    
+      function handleAddName() {
+        setNameList([...nameList, name]);
+        setTelefoneList([...telefoneList, telefone]);
+      }
 
     return (
     <View style={styles.container}>
         <AntDesign name="back" size={40} color="white" style={styles.back} onPress={openScreenA}/>
         <Text style={styles.title}>Agendar Consulta</Text>
         <View style={styles.inputsView}>
-            <TextInput style={styles.input} placeholder='Nome Completo'/>
-            <TextInput style={styles.input} placeholder='CPF'/>
-            <TextInput style={styles.input} placeholder='Data de nascimento'/>
-            <TextInput style={styles.input} placeholder='Endereço'/>
-            <TextInput style={styles.input} placeholder='E-mail'/>
-            <TextInput style={styles.input} placeholder='Telefone'/>
+            <TextInput style={styles.input} placeholder='Nome Completo' 
+                value={name} onChangeText={(text) => setName(text)}/>
+            <TextInput style={styles.input} placeholder='CPF' 
+                value={cpf} onChangeText={(text) => setCpf(text)}/>
+            <TextInput style={styles.input} placeholder='Data de nascimento' 
+                value={birthdate} onChangeText={(text) => setBirthdate(text)}/>
+            <TextInput style={styles.input} placeholder='Endereço' 
+                value={endereco} onChangeText={(text) => setEndereco(text)}/>
+            <TextInput style={styles.input} placeholder='Email' 
+                value={email} onChangeText={(text) => setEmail(text)}/>
+            <TextInput style={styles.input} placeholder='Telefone' 
+                value={telefone} onChangeText={(text) => setTelefone(text)}/>
         </View>
         <View style={styles.inputsView2}>
             <TextInput style={styles.input} placeholder='Data da consulta'/>
             <TextInput style={styles.input} placeholder='Horário da consulta'/>
             <TextInput style={styles.input} placeholder='Valor a ser pago'/>
         </View>
-        <TouchableOpacity style={styles.button} /* onPress={enviar}*/>
+        <TouchableOpacity style={styles.button} /* onPress={enviar}*/ onPress={handleAddName}>
             <Text style={styles.buttonText}>Enviar</Text></TouchableOpacity>
+        
     </View>
   );
 }
@@ -91,5 +124,5 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
-    }
+    },
 })

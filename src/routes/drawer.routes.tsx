@@ -1,5 +1,7 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { MaterialIcons } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
 
 const { Screen, Navigator} = createDrawerNavigator();
 
@@ -17,34 +19,25 @@ export function DrawerRoutes(){
                 options={{
                     drawerLabel: 'Home',
                     drawerIcon: () => 
-                        <MaterialIcons 
-                            name="home" 
-                            size={22}
-                        />
+                    <MaterialIcons name="home" size={22}/>
                 }}
             />
             <Screen
-                name='screenB'
+                name='Agendar Consulta'
                 component={ScreenB}
                 options={{
-                    drawerLabel: 'Tela B',
+                    drawerLabel: 'Agendar Consulta',
                     drawerIcon: () => 
-                        <MaterialIcons 
-                            name="add" 
-                            size={22}
-                        />
+                    <Entypo name="add-to-list" size={24} color="black" />
                 }}
             />
             <Screen
-                name='screenC'
+                name='Consultas Agendadas'
                 component={ScreenC}
                 options={{
-                    drawerLabel: 'Tela C',
+                    drawerLabel: 'Consultas Agendadas',
                     drawerIcon: () => 
-                        <MaterialIcons 
-                            name="add" 
-                            size={22}
-                        />
+                    <AntDesign name="calendar" size={24} color="black" />
                 }}
             />
         </Navigator>

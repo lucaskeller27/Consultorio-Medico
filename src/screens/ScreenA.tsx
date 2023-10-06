@@ -9,11 +9,11 @@ export function ScreenA() {
     const navigation = useNavigation();
   
     function openScreenB(){
-        navigation.navigate('screenB')
+        navigation.navigate('Agendar Consulta')
     }
   
     function openScreenC(){
-        navigation.navigate('screenC')
+        navigation.navigate('Consultas Agendadas')
     }
 
     return (

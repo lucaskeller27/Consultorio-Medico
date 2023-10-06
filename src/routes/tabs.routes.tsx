@@ -16,7 +16,7 @@ export function TabsRoutes(){
             }}
         >
             <Screen
-                name='screenA'
+                name='Home'
                 component={ScreenA}
                 options={{
                     tabBarLabel: 'Home',
@@ -30,7 +30,7 @@ export function TabsRoutes(){
                 }}
             />
             <Screen
-                name='screenB'
+                name='Agendar Consulta'
                 component={ScreenB}
                 options={{
                     tabBarLabel: 'Tela B',
@@ -44,7 +44,7 @@ export function TabsRoutes(){
                 }}
             />
             <Screen
-                name='screenC'
+                name='Consultas Agendadas'
                 component={ScreenC}
                 options={{
                     tabBarLabel: 'Tela C',

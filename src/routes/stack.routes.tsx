@@ -14,7 +14,7 @@ export function StackRoutes(){
             }}*/
         >
             <Screen
-                name='screenA'
+                name='Home'
                 options={{
                     title: 'Tela A',
                     headerShown: false
@@ -22,7 +22,7 @@ export function StackRoutes(){
                 component={ScreenA}
             />
             <Screen
-                name='screenB'
+                name='Agendar Consulta'
                 options={{
                     title: 'Tela B',
                     headerTitleAlign: 'left',
@@ -34,7 +34,7 @@ export function StackRoutes(){
                 component={ScreenB}
             />
             <Screen
-                name='screenC'
+                name='Consultas Agendadas'
                 options={{
                     title: 'Tela C',
                     headerTitleAlign: 'left',
